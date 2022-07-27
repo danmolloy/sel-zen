@@ -1,16 +1,19 @@
-import Alert from '../components/alert'
+import { useState } from 'react'
 import Footer from '../components/footer'
-import Meta from '../components/meta'
+import Header from './header'
+import Menu from './menu'
 
-export default function Layout({ preview, children }) {
+export default function Layout({ children }) {
+  const [showMenu, setShowMenu] = useState(false)
+
   return (
-    <>
-      <Meta />
-      <div className="min-h-screen">
-        <Alert preview={preview} />
-        <main>{children}</main>
+    <div className='layout-div'>
+      {showMenu && <Menu showMenu={e => setShowMenu(e)}/>}
+      <Header showMenu={e => setShowMenu(e)}/>
+      <div className="main-div">
+        {children}      
       </div>
       <Footer />
-    </>
+    </div>
   )
 }

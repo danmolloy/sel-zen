@@ -1,44 +1,36 @@
 import Head from 'next/head'
-import Container from '../components/container'
-import MoreStories from '../components/more-stories'
-import HeroPost from '../components/hero-post'
-import Intro from '../components/intro'
+import Image from 'next/image'
 import Layout from '../components/layout'
-import { getAllPostsForHome } from '../lib/api'
+import News from '../components/news'
+import { getPages, getPosts } from '../lib/api'
 import { CMS_NAME } from '../lib/constants'
 
-export default function Index({ allPosts: { edges }, preview }) {
-  const heroPost = edges[0]?.node
-  const morePosts = edges.slice(1)
+export default function Index({ allPosts, allPages }) {
+  
 
   return (
-    <Layout preview={preview}>
+    <Layout>
       <Head>
         <title>Next.js Blog Example with {CMS_NAME}</title>
       </Head>
-      <Container>
-        <Intro />
-        {heroPost && (
-          <HeroPost
-            title={heroPost.title}
-            coverImage={heroPost.featuredImage}
-            date={heroPost.date}
-            author={heroPost.author}
-            slug={heroPost.slug}
-            excerpt={heroPost.excerpt}
-          />
-        )}
-        {morePosts.length > 0 && <MoreStories posts={morePosts} />}
-      </Container>
+        <h1 className='self-center m-4'>Welcome to Zen in South London</h1>
+        <Image src={"https://zeninsouthlondon.co.uk/wp-content/uploads/2021/09/zen2.jpg"} width={1376/2} height={688/2} alt="Zen in South London" />
+        <News posts={allPosts} />
     </Layout>
   )
 }
 
-export async function getStaticProps({ preview = false }) {
-  const allPosts = await getAllPostsForHome(preview)
+export async function getStaticProps() {
+  const allPosts = await getPosts()
 
   return {
-    props: { allPosts, preview },
+    props: { allPosts },
     revalidate: 10,
   }
+  /* const allPages = await getPages()
+
+  return {
+    props: { allPages },
+    revalidate: 10,
+  } */
 }

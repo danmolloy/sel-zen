@@ -1,104 +1,86 @@
 @tailwind base;
 
-/* Write your own custom base styles here */
+@layer base {
+  h1 {
+  @apply text-3xl;
+  }
+  h2 {
+    @apply text-2xl;
+  }
+  h3 {
+    @apply text-xl;
+  }
+  a {
+    @apply text-blue-600 underline;
+}}
 
-/* Start purging... */
 @tailwind components;
-/* Stop purging. */
-
-/* Write you own custom component styles here */
-
-/* Start purging... */
 @tailwind utilities;
-/* Stop purging. */
 
-/* Your own custom utilities */
-
-.has-text-align-left {
-  @apply text-left;
-}
-
-.has-text-align-center {
-  @apply text-center;
-}
-
-.has-text-align-right {
-  @apply text-right;
-}
-
-.has-large-font-size {
-  @apply text-4xl;
-}
-
-.alignfull {
-  @apply w-screen relative;
-
-  left: 50%;
-  margin-left: -50vw;
-  margin-right: -50vw;
-  max-width: 100vw;
-  right: 50%;
-}
-
-.wp-block-image img {
-  @apply max-w-full mt-2;
-}
-.wp-block-image.aligncenter {
-  @apply text-center;
-}
-.wp-block-image.alignfull img,
-.wp-block-image.alignwide img {
-  @apply w-full;
-}
-.wp-block-image .alignleft,
-.wp-block-image .alignright,
-.wp-block-image .aligncenter,
-.wp-block-image.is-resized {
-  @apply table ml-0 mr-0;
-}
-.wp-block-image .alignleft > figcaption,
-.wp-block-image .alignright > figcaption,
-.wp-block-image .aligncenter > figcaption,
-.wp-block-image.is-resized > figcaption {
-  @apply table-caption;
-
-  caption-side: bottom;
-}
-
-.wp-block-image .alignleft {
-  @apply float-left mr-4;
-}
-.wp-block-image .alignright {
-  @apply float-right ml-4;
-}
-.wp-block-image .aligncenter {
-  @apply m-auto;
-}
-
-.wp-block-button a,
-.wp-block-file a.wp-block-file__button {
-  @apply bg-blue-500 text-white no-underline py-2 px-4;
+@layer components {
+  /* Layout Component */
+  .layout-div {
+    @apply min-h-screen flex flex-col 
+  }
+  /* Main Children */
+  .main-div {
+    @apply flex flex-col  self-center md:w-1/2
+  }
+  .main-h1 {
+    @apply m-2
+  }
+  .main-text {
+    @apply m-2
+  }
+  /* Header Component */
+  .header-div {
+    @apply border-b shadow flex flex-row justify-between items-center h-16
+  }
+  .header-title {
+    @apply m-2
+  }
+  .menu-icon {
+    @apply m-2 p-2 rounded-full text-xl bg-orange-400 text-white hover:bg-orange-500 active:bg-orange-600
+  }
+  /* Footer Component */
+  .footer-div {
+    @apply bg-slate-300 h-24 
+  }
+  /* Menu */
+  .menu-div {
+    @apply bg-white z-10 fixed right-0 w-1/3 shadow border rounded-bl border-t-0
+  }
+  .menu-item {
+    @apply text-lg p-2 flex flex-row hover:bg-orange-300 active:bg-orange-400 rounded
+  }
+  .menu-header {
+    @apply text-lg p-2 flex flex-row items-center justify-end h-16
+  }
+  .close-menu-icon {
+    @apply p-2 text-xl rounded-full bg-orange-400 text-white hover:bg-orange-500 active:bg-orange-600
+  }
+  /* Home */
+  /* News Feed */
+  /* Zazen */
+  /* Links */
+  /* Contact Form */
+  .contact-form{
+    @apply flex flex-col sm:w-2/3 p-2 self-center
+  }
+  .form-input-label-div{
+    @apply flex flex-col p-2 m-2
+  }
+  .form-input{
+    @apply border border-black rounded-md p-1
+  }
+  .form-text{
+    @apply border border-black rounded-md p-1
+  }
+  .form-submit-btn{
+    @apply py-1 w-16 rounded shadow bg-blue-500 text-white self-end
+  }
 }
 
-.wp-block-button a:hover,
-.wp-block-file a.wp-block-file__button:hover {
-  @apply bg-blue-400 cursor-pointer;
-}
-
-.wp-block-file a:first-of-type {
-  @apply mr-4;
-}
-
-.wp-block-cover {
-  @apply flex flex-wrap justify-center items-center bg-cover bg-center overflow-hidden;
-
-  min-height: 430px;
-}
-
-.wp-block-verse {
-  @apply font-sans;
-}
-
-.wp-block-media-text {
-  @apply grid grid-cols-2 gap-4;
+.main-div {
+  min-height: calc(100vh - 10rem);
 }
