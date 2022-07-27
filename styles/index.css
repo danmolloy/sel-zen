@@ -44,7 +44,7 @@
   }
   /* Footer Component */
   .footer-div {
-    @apply bg-slate-300 h-24 
+    @apply bg-slate-50 h-24 
   }
   /* Menu */
   .menu-div {
