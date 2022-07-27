@@ -6,7 +6,7 @@ export default function WpPage() {
   )
 }
 
-export async function getStaticProps() {
+/* export async function getStaticProps() {
   const allPages = await getPages()
 
   return {
@@ -22,4 +22,4 @@ export async function getStaticPaths() {
     paths: allPosts.nodes.map(i => `/${node.slug}`) || [],
     fallback: true,
   }
-}
+} */
