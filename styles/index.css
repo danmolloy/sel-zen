@@ -57,7 +57,7 @@
   }
   /* Menu */
   .menu-div {
-    @apply bg-white w-screen h-screen flex flex-col justify-evenly my-8 items-center pb-4
+    @apply fixed z-10 bg-white w-screen h-screen flex flex-col justify-evenly  items-center pb-4
   }
   .menu-item {
     @apply text-lg w-full py-8 flex flex-row justify-center hover:bg-slate-200 active:bg-slate-100 hover:cursor-pointer rounded

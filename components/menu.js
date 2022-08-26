@@ -6,6 +6,7 @@ export default function Menu({ showMenu, menuItems }) {
 
   return (
     <div className="menu-div">
+      <div className="menu-header h-16"></div>
       {menuItems.map(i => (
         <Link href={i.link}>
           <div className="menu-item">

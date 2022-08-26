@@ -1,9 +1,12 @@
+import Image from "next/image";
 import Layout from "../components/layout";
 
 export default function Zazen() {
   return (
     <Layout>
       <h1 className="main-h1">Zazen</h1>
+      <Image src={"https://www.fillmurray.com/200/300"} width={200} height={300} layout="fixed"/>
+
       <div className="main-text">
         <p>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
